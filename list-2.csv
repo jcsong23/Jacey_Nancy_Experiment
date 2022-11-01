@@ -1,0 +1,25 @@
+﻿object_number,object,condition,sentence_type,image_type,picture,sentence
+1,watermelon,neutral-slice,neutral,slice,watermelon_slice.jpeg,Someone places a watermelon in front of you.
+2,apple,neutral-slice,neutral,slice,apple_slice.jpeg,Someone places an apple in front of you.
+3,cake,neutral-slice,neutral,slice,cake_slice.jpeg,Someone places a cake in front of you.
+4,pie ,neutral-slice,neutral,slice,pie _slice.jpeg,Someone places a pie in front of you.
+5,bread,neutral-slice,neutral,slice,bread_slice.jpeg,Someone places bread in front of you.
+6,pineapple,neutral-slice,neutral,slice,pineapple_slice.jpeg,Someone places a pineapple in front of you.
+7,peach,neutral-whole,neutral,whole,peach_whole.jpeg,Someone places a peach in front of you.
+8,steak,neutral-whole,neutral,whole,steak_whole.jpeg,Someone places a steak in front of you.
+9,cheesecake,neutral-whole,neutral,whole,cheesecake_whole.jpeg,Someone places a cheesecake in front of you.
+10,lemon,neutral-whole,neutral,whole,lemon_whole.jpeg,Someone places a lemon in front of you.
+11,tomato,neutral-whole,neutral,whole,tomato_whole.jpeg,Someone places a tomato in front of you.
+12,orange,neutral-whole,neutral,whole,orange_whole.jpeg,Someone places an orange in front of you.
+13,pizza,modified-slice,modified,slice,pizza_slice.jpeg,Someone slices a pizza in front of you.
+14,melon,modified-slice,modified,slice,melon_slice.jpeg,Someone slices a melon in front of you.
+15,cucumber,modified-slice,modified,slice,cucumber_slice.jpeg,Someone slices a cucumber in front of you.
+16,carrot,modified-slice,modified,slice,carrot_slice.jpeg,Someone slices a carrot in front of you.
+17,onion,modified-slice,modified,slice,onion_slice.jpeg,Someone slices an onion in front of you.
+18,mushrooms,modified-slice,modified,slice,mushrooms_slice.jpeg,Someone slices mushrooms in front of you.
+19,radish,modified-whole,modified,whole,radish_whole.jpeg,Someone slices a radish in front of you.
+20,pear,modified-whole,modified,whole,pear_whole.jpeg,Someone slices a pear in front of you.
+21,pepper,modified-whole,modified,whole,pepper_whole.jpeg,Someone slices a pepper in front of you.
+22,mango,modified-whole,modified,whole,mango_whole.jpeg,Someone slices a mango in front of you.
+23,strawberry,modified-whole,modified,whole,strawberry_whole.jpeg,Someone slices a strawberry in front of you.
+24,grapefruit,modified-whole,modified,whole,grapefruit_whole.jpeg,Someone slices a grapefruit in front of you.
