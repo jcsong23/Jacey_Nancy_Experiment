@@ -7,6 +7,7 @@
         <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.1"></script>
         <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.1.1"></script>
         <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.1"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.1.1"></script>
         <!--Style sheet import (ie making prompt show in center of screen)-->
         <link href="https://unpkg.com/jspsych@7.3.0/css/jspsych.css" rel="stylesheet" type="text/css" />
         <!--Import stimuli-->
@@ -21,46 +22,35 @@
     </head>
     <body>
         <script>
-            // Each screen of the experiment is a new plugin you need to define below the previous plugin
+
+            // Define the image paths 
+            var imageFilePath = "PICTURES/"
+            var expImagePath = "experimental-pics/"
 
             var jsPsych = initJsPsych({
-                on_finish: function(){ 
-                    jsPsych.data.displayData(); // Added data display after trial for testing
-                }
+                // on_finish: function(){ 
+                //     jsPsych.data.displayData(); // Added data display after trial for testing
+                // }
             });
-            
-            // CONSTANT EXAMPLE
-            // const hello_trial = {
-            //     type: jsPsychHtmlKeyboardResponse, //what kind of screen you want to create/the plugin type
-            //     stimulus: 'Hello world!',
-            //     choices: "NO_KEYS", //restricts choices--stim dissapears when you press a Y or an N
-            //     stimulus_duration: 500,
-            //     prompt: 'Press Y or N',
-            //     trial_duration: 2000
-            // }
-            
             
             //Generate a random user ID
             var subject_id = Math.floor(Math.random()*100000);
 
-            // INSTRUCTION/WELCOME SCREEN
+            // WELCOME SCREEN
             var welcome_screen = {
-                type: jsPsychHtmlKeyboardResponse,
-                stimulus: 'Welcome to the experiment!',
-                choices: "NO_KEYS",
-                trial_duration: 1000,
+                type: jsPsychHtmlButtonResponse,
+                stimulus: "<p> Welcome to the experiment! Instructions will be on this screen.</p>",
+                choices: ['Begin Experiment'],
                 data: {
-                typeoftrial: 'instruction',
-                // list_number: jsPsych.timelineVariable('List'),
-                // trialcondition: jsPsych.timelineVariable('condition'),
-                subject: subject_id
+                    typeoftrial: 'instruction',
+                    subject_id: subject_id
                 }
             }
 
             // PRELOAD IMAGES
             var preload = {
                     type: jsPsychPreload,
-                    images: imagelist,
+                    images: imagelist, // ** CURRENTLY EMPTY **
                     show_progress_bar: true,
                     data: {
                         typeoftrial: 'preload',
@@ -68,19 +58,15 @@
                     }
                 };
             
-            // FIXATION 1: +
+            // FIXATION CROSS 1
             var fixation1 = {
                 type: jsPsychHtmlKeyboardResponse,
-                //formatting stimulus font. Remember to close the entire thing in string quotes. The original '+'
-                //no longer needs string quotes around it.
                 stimulus: '<p style="font-size : 48px">+</p>',
                 choices: "NO_KEYS",
                 trial_duration: 1000,
-                // When fixation column appears, add the 
-                //specified data below to the written data file
                 data: {
                 typeoftrial: 'fixation',
-                list_number: jsPsych.timelineVariable('List'),
+                // list_number: jsPsych.timelineVariable('List'),
                 trialcondition: jsPsych.timelineVariable('condition'),
                 subject: subject_id
                 }
@@ -90,26 +76,25 @@
             var sentence = {
                 type: jsPsychHtmlKeyboardResponse,
                 stimulus: jsPsych.timelineVariable('sentence'),
-                choices: " ", //spacebar entry
+                // press spacebar to continue
+                choices: " ", 
                 data: {
                 typeoftrial: 'sentence',
-                list_number: jsPsych.timelineVariable('List'),
+                // list_number: jsPsych.timelineVariable('List'),
                 trialcondition: jsPsych.timelineVariable('condition'),
                 subject: subject_id
                 }
             }
             
-            // FIXATION 2
+            // FIXATION CROSS 2
             var fixation2 = {
                 type: jsPsychHtmlKeyboardResponse,
-                //formatting stimulus font. Remember to close the entire thing in string quotes. The original '+'
-                //no longer needs string quotes around it.
                 stimulus: '<p style="font-size : 48px">+</p>',
                 choices: "NO_KEYS",
                 trial_duration: 500,
                 data: {
                 typeoftrial: 'fixation',
-                list_number: jsPsych.timelineVariable('List'),
+                // list_number: jsPsych.timelineVariable('List'),
                 trialcondition: jsPsych.timelineVariable('condition'),
                 subject: subject_id
                 }
@@ -118,44 +103,46 @@
             // IMAGE
             var picture = {
                 type: jsPsychImageKeyboardResponse,
-                stimulus: jsPsych.timelineVariable('pic'),
-                choices: ['S', 'N', 's', 'n'],
+                stimulus: imageFilePath + expImagePath + jsPsych.timelineVariable('picture'),
+                stimulus_width: 300,
+                choices: ['A', 'L', 'a', 'l'],
                 data: {
                 typeoftrial: 'picture',
-                list_number: jsPsych.timelineVariable('List'),
+                // list_number: jsPsych.timelineVariable('List'),
                 trialcondition: jsPsych.timelineVariable('condition'),
                 subject: subject_id,
                 },
-                // score the response as correct or incorrect.
-                on_finish: function(data){
-                        if(jsPsych.pluginAPI.compareKeys(data.response, jsPsych.timelineVariable('correct'))){
-                            //data.response = 'S' or 'N' entered
-                            data.correct = true;
-                        } else {data.correct = false;}
-                    }
+                // score the response as correct or incorrect. // ** NO FEEDBACK **
+                // on_finish: function(data){
+                //         if(jsPsych.pluginAPI.compareKeys(data.response, jsPsych.timelineVariable('correct'))){
+                //             //data.response = 'S' or 'N' entered
+                //             data.correct = true;
+                //         } else {data.correct = false;}
+                //     }
             }
             
+            // ** NO FEEDBACK FUNCTIONALITY **
             // FEEDBACK STIMULI tells whether P's entered correct response
-            var feedback = {
-                    type: jsPsychHtmlKeyboardResponse,
-                    stimulus: function () {
-                        // obtaining the value previously stored in data.correcty but only for the most recent trial 
-                        var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct; 
-                        if (last_trial_correct) { return "CORRECT!"; }
-                        else {
-                            return "WRONG!";
-                        }
-                    },
-                    choices: "NO_KEYS",
-                    trial_duration: 2000
-                }
+            // var feedback = {
+            //         type: jsPsychHtmlKeyboardResponse,
+            //         stimulus: function () {
+            //             // obtaining the value previously stored in data.correcty but only for the most recent trial 
+            //             var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct; 
+            //             if (last_trial_correct) { return "CORRECT!"; }
+            //             else {
+            //                 return "WRONG!";
+            //             }
+            //         },
+            //         choices: "NO_KEYS",
+            //         trial_duration: 2000
+                // }
             
-            // PRACTICE PROCEDURE
-            var practice_procedure = {
-                    timeline: [fixation1, sentence, fixation2, picture, feedback],
-                    timeline_variables: practicestimuli,
-                    randomize_order: true
-                };
+            // PRACTICE PROCEDURE ** INCOMPLETE **
+            // var practice_procedure = {
+            //         timeline: [fixation1, sentence, fixation2, picture, feedback],
+            //         timeline_variables: practicestimuli,
+            //         randomize_order: true
+            //     };
 
             // END SCREEN
             var end_experiment = {
@@ -178,15 +165,15 @@
             // console.log("list=", list)
             // console.log("CONDITION=", CONDITION)
             // console.log("teststimuli=", teststimuli)
+            console.log("picture=", picture)
 
-            
             // PLUGIN CALLS. Pass in the array of plugins to run. Remember to pass in all the plugins.
             var experiment_procedure = {
                 timeline: [fixation1, sentence, fixation2, picture], // The events we defined
                 timeline_variables: teststimuli, // Now the random list 
                 randomize_order: true // rando order shown to participants
             };
-            jsPsych.run([preload, welcome_screen, practice_procedure, experiment_procedure, end_experiment]);
+            jsPsych.run([preload, welcome_screen, experiment_procedure, end_experiment]);
 
             // Use timeslines to repeat trials per participant
             // supply excel/csv items by using paths where you define the stimuli
