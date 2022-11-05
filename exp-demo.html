@@ -23,10 +23,6 @@
     <body>
         <script>
 
-            // Define the image paths 
-            var imageFilePath = "PICTURES/"
-            var expImagePath = "experimental-pics/"
-
             var jsPsych = initJsPsych({
                 // on_finish: function(){ 
                 //     jsPsych.data.displayData(); // Added data display after trial for testing
@@ -103,7 +99,7 @@
             // IMAGE
             var picture = {
                 type: jsPsychImageKeyboardResponse,
-                stimulus: imageFilePath + expImagePath + jsPsych.timelineVariable('picture'),
+                stimulus: jsPsych.timelineVariable('picture'),
                 stimulus_width: 300,
                 choices: ['A', 'L', 'a', 'l'],
                 data: {
