@@ -8,10 +8,10 @@
         <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.1.1"></script>
         <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.1"></script>
         <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.1.1"></script>
-        <!--Style sheet import (ie making prompt show in center of screen)-->
+        <!--Style sheet import-->
         <link href="https://unpkg.com/jspsych@7.3.0/css/jspsych.css" rel="stylesheet" type="text/css" />
-        <!--Import stimuli-->
-        <script src="practice.js"></script>
+        <!--Import stimuli ** UNUSED **-->
+        <script src="practice.js"></script> 
         <script src="stimuli.js"></script>
         <!--Import lists-->
         <script src="list-1.js"></script>
@@ -46,7 +46,7 @@
             // PRELOAD IMAGES
             var preload = {
                     type: jsPsychPreload,
-                    images: imagelist, // ** CURRENTLY EMPTY **
+                    images: imagelist, // ** NOT INITIALIZED ** 
                     show_progress_bar: true,
                     data: {
                         typeoftrial: 'preload',
@@ -99,7 +99,7 @@
             // IMAGE
             var picture = {
                 type: jsPsychImageKeyboardResponse,
-                stimulus: jsPsych.timelineVariable('picture'),
+                stimulus: jsPsych.timelineVariable('image_path'),
                 stimulus_width: 300,
                 choices: ['A', 'L', 'a', 'l'],
                 data: {
@@ -108,13 +108,13 @@
                 trialcondition: jsPsych.timelineVariable('condition'),
                 subject: subject_id,
                 },
-                // score the response as correct or incorrect. // ** NO FEEDBACK **
-                // on_finish: function(data){
-                //         if(jsPsych.pluginAPI.compareKeys(data.response, jsPsych.timelineVariable('correct'))){
-                //             //data.response = 'S' or 'N' entered
-                //             data.correct = true;
-                //         } else {data.correct = false;}
-                //     }
+                // score the response as correct or incorrect. // ** EXPERIMENTAL CONDITION ONLY - DOES NOT TRACK CORRECT 'NO' RESPONSES **
+                on_finish: function(data){
+                        if(jsPsych.pluginAPI.compareKeys(data.response, 'A')){
+                            //data.response = 'S' or 'N' entered
+                            data.correct = true;
+                        } else {data.correct = false;}
+                    }
             }
             
             // ** NO FEEDBACK FUNCTIONALITY **
@@ -161,7 +161,7 @@
             // console.log("list=", list)
             // console.log("CONDITION=", CONDITION)
             // console.log("teststimuli=", teststimuli)
-            console.log("picture=", picture)
+            // console.log("picture=", picture)
 
             // PLUGIN CALLS. Pass in the array of plugins to run. Remember to pass in all the plugins.
             var experiment_procedure = {
@@ -169,10 +169,9 @@
                 timeline_variables: teststimuli, // Now the random list 
                 randomize_order: true // rando order shown to participants
             };
+
             jsPsych.run([preload, welcome_screen, experiment_procedure, end_experiment]);
 
-            // Use timeslines to repeat trials per participant
-            // supply excel/csv items by using paths where you define the stimuli
         </script>
     </body>
 </html>
