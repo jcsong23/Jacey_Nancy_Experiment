@@ -1,0 +1,15 @@
+﻿object_number,object,condition,image_path,sentence,correct_response
+1,icecream,practice,PICTURES/practice-pics/icecream.jpeg,"""You look at ice cream.""",A
+2,stapler,practice,PICTURES/practice-pics/key.jpeg,"""You look at a stapler,""",L
+3,chocolate,practice,PICTURES/practice-pics/chocolate.jpeg,"""You look at chocolate.""",A
+4,leaf,practice,PICTURES/practice-pics/leaf.jpeg,"""You look at a leaf.""",A
+5,shrimp,practice,PICTURES/practice-pics/blackberry.jpeg,"""You look at shrimp.""",L
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
