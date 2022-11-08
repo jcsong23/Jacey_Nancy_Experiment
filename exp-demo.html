@@ -10,38 +10,67 @@
         <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.1.1"></script>
         <!--Style sheet import-->
         <link href="https://unpkg.com/jspsych@7.3.0/css/jspsych.css" rel="stylesheet" type="text/css" />
+        
+        <script src="https://unpkg.com/jspsych@7.1.2"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-external-html@1.1.1"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.1"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.1.1"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.1.1"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-image-button-response@1.1.1"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.0"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-survey-multi-select@1.1.1"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-survey-multi-choice@1.1.1"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-call-function@1.1.1"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.1"></script>
+        <link href="https://unpkg.com/jspsych@7.1.2/css/jspsych.css" rel="stylesheet" type="text/css" />
         <!--Import stimuli ** UNUSED **-->
-        <script src="practice.js"></script> 
-        <script src="stimuli.js"></script>
+        <!--<script src="practice.js"></script> -->
+        <!--<script src="stimuli.js"></script> -->
         <!--Import lists-->
         <script src="list-1.js"></script>
         <script src="list-2.js"></script>
         <script src="list-3.js"></script>
         <script src="list-4.js"></script>
-        <script src="images.js"></script>
+        <script src="imagelist.js"></script>
     </head>
     <body>
         <script>
 
             var jsPsych = initJsPsych({
-                // on_finish: function(){ 
-                //     jsPsych.data.displayData(); // Added data display after trial for testing
-                // }
+                
             });
             
             //Generate a random user ID
             var subject_id = Math.floor(Math.random()*100000);
 
+            // prolific ID
+            var ID = {
+                type: jsPsychSurveyText,
+                questions: [
+                    {prompt: 'Enter your Prolific ID below:', required: true, name: 'ID'},
+                    ],
+                button_label: 'Continue',
+                data: {
+                    typeoftrial: 'ID',
+                    Experiment: jsPsych.timelineVariable('Experiment'),
+                    subject: subject_id
+                },
+                on_finish:function(data){
+                subject_id = data.response.ID
+            }
+            };
+
             // WELCOME SCREEN
             var welcome_screen = {
                 type: jsPsychHtmlButtonResponse,
-                stimulus: "<p> Welcome to the experiment! Instructions will be on this screen.</p>",
+                stimulus: "<p> Welcome to the experiment! In this experiment, you will be asked to make judgments about the content of different sentences. On each trial, you will read a sentence, and will be shown a picture immediately following the sentence. Your task is to decide whether the object displayed in the picture was mentioned in the sentence or not and respond as quickly as possible by pressing <strong>A</strong> for yes or <strong>L</strong> for no. You will now do a practice session with feedback and instructions. Click the button below to continue.</p>",
+            choices: ['Continue'],
                 choices: ['Begin Experiment'],
                 data: {
-                    typeoftrial: 'instruction',
+                    typeoftrial: 'instructions',
                     subject_id: subject_id
                 }
-            }
+            };
 
             // PRELOAD IMAGES
             var preload = {
