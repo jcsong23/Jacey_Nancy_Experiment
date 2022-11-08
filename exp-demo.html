@@ -25,7 +25,7 @@
     <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.1"></script>
     <link href="https://unpkg.com/jspsych@7.1.2/css/jspsych.css" rel="stylesheet" type="text/css" />
     <!--Import stimuli ** UNUSED **-->
-    <!--<script src="practice.js"></script> -->
+    <script src="practice.js"></script>
     <!--<script src="stimuli.js"></script> -->
     <!--Import lists-->
     <script src="list-1.js"></script>
@@ -288,26 +288,26 @@ var demo_procedure = {
 
         // ** NO FEEDBACK FUNCTIONALITY **
         // FEEDBACK STIMULI tells whether P's entered correct response
-        // var feedback = {
-        //         type: jsPsychHtmlKeyboardResponse,
-        //         stimulus: function () {
-        //             // obtaining the value previously stored in data.correcty but only for the most recent trial 
-        //             var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct; 
-        //             if (last_trial_correct) { return "CORRECT!"; }
-        //             else {
-        //                 return "WRONG!";
-        //             }
-        //         },
-        //         choices: "NO_KEYS",
-        //         trial_duration: 2000
-        // }
+        var feedback = {
+                type: jsPsychHtmlKeyboardResponse,
+                stimulus: function () {
+                    // obtaining the value previously stored in data.correcty but only for the most recent trial 
+                    var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct; 
+                    if (last_trial_correct) { return "CORRECT!"; }
+                    else {
+                        return "WRONG!";
+                    }
+                },
+                choices: "NO_KEYS",
+                trial_duration: 2000
+        }
 
         // PRACTICE PROCEDURE ** INCOMPLETE **
-        // var practice_procedure = {
-        //         timeline: [fixation1, sentence, fixation2, picture, feedback],
-        //         timeline_variables: practicestimuli,
-        //         randomize_order: true
-        //     };
+        var practice_procedure = {
+                 timeline: [fixation1, sentence, fixation2, picture, feedback],
+                 timeline_variables: practicestimuli,
+                 randomize_order: true
+             };
 
         // END SCREEN
         var end_experiment = {
