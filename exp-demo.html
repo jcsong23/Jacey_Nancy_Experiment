@@ -74,6 +74,39 @@
             }
         };
 
+        var instructions2 = {
+            type: jsPsychHtmlButtonResponse,
+            stimulus: `
+            <p style="font-size:20px;"> You are about to begin the practice test. </p>
+            <p style="font-size:20px;"> On each trial, a sentence will appear on the screen. You should press SPACEBAR when you have read and understood the sentence.</p>
+            <p style="font-size:20px;"> After you press SPACEBAR, a picture will appear on the screen. </p>
+            <p style="font-size:20px;"> You need to indicate whether or not the pictured object was mentioned in the sentence. </p>
+            <p style="font-size:20px;"> If the object WAS mentioned in the preceding sentence, you should press <strong>A</strong> </p>
+            <p style="font-size:20px;"> If the object was NOT mentioned in the preceding sentence, you should press <strong>L</strong>. </p>
+            <p style="font-size:20px;"> Click the button below to continue to the practice session.</p>
+            `,
+            choices: ['Continue'],
+                data: {
+                  typeoftrial: 'instructions',
+                  subject: subject_id
+              }
+          };
+
+
+          var movetoexp = {
+              type: jsPsychHtmlButtonResponse,
+              stimulus: `<p style="font-size:20px;">You have now completed the practice session! </p>
+              <p style="font-size:20px;">You will now move on to the main experiment, where you will not be provided any feedback. </p>
+              <p style="font-size:20px;">Remember, you should press <strong>A</strong> if the pictured object was mentioned in the preceding sentence<br> and <strong>L</strong> if the pictured object was not mentioned in the preceding sentence.</p>
+              <p style="font-size:20px;">For these questions, make sure you are answering A/L based on the content mentioned in the sentence.</p>
+              <p style="font-size:20px;">Please click the button below to continue to the main experiment. </p>`,
+              choices: ['Continue'],
+              data: {
+                typeoftrial: 'movetoexp',
+                subject: subject_id
+              }
+          };
+
         // PRELOAD IMAGES
         var preload = {
             type: jsPsychPreload,
@@ -121,7 +154,7 @@
             trial_duration: 500,
             data: {
                 typeoftrial: 'fixation',
-                // list_number: jsPsych.timelineVariable('List'),
+                list_number: jsPsych.timelineVariable('List'),
                 trialcondition: jsPsych.timelineVariable('condition'),
                 subject: subject_id
             }
@@ -135,14 +168,13 @@
             choices: ['A', 'L', 'a', 'l'],
             data: {
                 typeoftrial: 'picture',
-                // list_number: jsPsych.timelineVariable('List'),
+                list_number: jsPsych.timelineVariable('List'),
                 trialcondition: jsPsych.timelineVariable('condition'),
                 subject: subject_id,
             },
-            // score the response as correct or incorrect. // ** EXPERIMENTAL CONDITION ONLY - DOES NOT TRACK CORRECT 'NO' RESPONSES **
+            // Store whether participant response was correct or not.
             on_finish: function (data) {
                 if (jsPsych.pluginAPI.compareKeys(data.response, jsPsych.timelineVariable('correct_response'))) {
-                    //data.response = 'S' or 'N' entered
                     data.correct = true;
                 } else { data.correct = false; }
             }
@@ -286,23 +318,23 @@
           timeline: [demo_1, demo_2,demo_3, english, not_english_loop, demo_5]
         }
 
-              // ** NO FEEDBACK FUNCTIONALITY **
-              // FEEDBACK STIMULI tells whether P's entered correct response
+        // FEEDBACK for practice runs
               var feedback = {
                       type: jsPsychHtmlKeyboardResponse,
                       stimulus: function () {
-                          // obtaining the value previously stored in data.correcty but only for the most recent trial 
-                          var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct; 
-                          if (last_trial_correct) { return "CORRECT!"; }
+                          // obtaining the value previously stored for the most recent trial 
+                          var last_trial_correct = jsPsych.pluginAPI.compareKeys(jsPsych.data.get().last(1).values()[0].response,
+                           jsPsych.timelineVariable('correct_response')); 
+                          if (last_trial_correct) { return "Correct!"; }
                           else {
-                              return "WRONG!";
+                              return "Wrong!";
                           }
                       },
                       choices: "NO_KEYS",
                       trial_duration: 2000
               }
 
-        // PRACTICE PROCEDURE ** INCOMPLETE **
+        // PRACTICE PROCEDURE
         var practice_procedure = {
                  timeline: [fixation1, sentence, fixation2, picture, feedback],
                  timeline_variables: practicestimuli,
@@ -339,7 +371,7 @@
             randomize_order: true // rando order shown to participants
         };
 
-        jsPsych.run([preload, ID, welcome_screen, experiment_procedure, demo_procedure, end_experiment]);
+        jsPsych.run([preload, ID, welcome_screen, instructions2, practice_procedure, movetoexp, experiment_procedure, demo_procedure, end_experiment]);
 
     </script>
 </body>

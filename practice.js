@@ -12,7 +12,7 @@ var practicestimuli = [
       "object": "stapler",
       "condition": "practice",
       "image_path": "PICTURES/practice-pics/key.jpeg",
-      "sentence": "You look at a stapler,",
+      "sentence": "You look at a stapler.",
       "correct_response": "L"
     },
     {
