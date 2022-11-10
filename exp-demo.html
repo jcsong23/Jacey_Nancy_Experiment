@@ -65,7 +65,7 @@
         // WELCOME SCREEN
         var welcome_screen = {
             type: jsPsychHtmlButtonResponse,
-            stimulus: "<p> Welcome to the experiment! In this experiment, you will be asked to make judgments about the content of different sentences. On each trial, you will read a sentence, and will be shown a picture immediately following the sentence. Your task is to decide whether the object displayed in the picture was mentioned in the sentence or not and respond as quickly as possible by pressing <strong>A</strong> for yes or <strong>L</strong> for no. You will now do a practice session with feedback and instructions. Click the button below to continue.</p>",
+            stimulus: "<p> Welcome to the experiment! </p> <p> In this experiment, you will be asked to make judgments about the content of different sentences. On each trial, you will read a sentence, and will be shown a picture immediately following the sentence. Your task is to decide whether the object displayed in the picture was mentioned in the sentence or not and respond as quickly as possible by pressing <strong>A</strong> for yes or <strong>L</strong> for no. </p> <p>You will now do a practice session with feedback and instructions. Click the button below to continue.</p>",
             choices: ['Continue'],
             choices: ['Begin Experiment'],
             data: {
@@ -312,7 +312,7 @@
         // END SCREEN
         var end_experiment = {
             type: jsPsychHtmlKeyboardResponse,
-            stimulus: "Thank you for participating! Click any key to end the experiment."
+            stimulus: "Thank you for participating! <br> This is your completion code: C17TTYD2. Please take note of this to receive credit. <br> Click any key to end the experiment."
         }
 
         // ASSIGN A LIST 
