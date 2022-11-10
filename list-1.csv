@@ -1,25 +1,73 @@
-﻿list,object_number,object,condition,sentence_type,image_type,picture,image_path,sentence
-1,1,watermelon,neutral-whole,neutral,whole,watermelon_whole.jpeg,PICTURES/experimental-pics/watermelon_whole.jpeg,Someone places a watermelon in front of you.
-1,2,apple,neutral-whole,neutral,whole,apple_whole.jpeg,PICTURES/experimental-pics/apple_whole.jpeg,Someone places an apple in front of you.
-1,3,cake,neutral-whole,neutral,whole,cake_whole.jpeg,PICTURES/experimental-pics/cake_whole.jpeg,Someone places a cake in front of you.
-1,4,pie ,neutral-whole,neutral,whole,pie _whole.jpeg,PICTURES/experimental-pics/pie _whole.jpeg,Someone places a pie in front of you.
-1,5,bread,neutral-whole,neutral,whole,bread_whole.jpeg,PICTURES/experimental-pics/bread_whole.jpeg,Someone places bread in front of you.
-1,6,pineapple,neutral-whole,neutral,whole,pineapple_whole.jpeg,PICTURES/experimental-pics/pineapple_whole.jpeg,Someone places a pineapple in front of you.
-1,7,peach,modified-slice,modified,slice,peach_slice.jpeg,PICTURES/experimental-pics/peach_slice.jpeg,Someone slices a peach in front of you.
-1,8,steak,modified-slice,modified,slice,steak_slice.jpeg,PICTURES/experimental-pics/steak_slice.jpeg,Someone slices a steak in front of you.
-1,9,cheesecake,modified-slice,modified,slice,cheesecake_slice.jpeg,PICTURES/experimental-pics/cheesecake_slice.jpeg,Someone slices a cheesecake in front of you.
-1,10,lemon,modified-slice,modified,slice,lemon_slice.jpeg,PICTURES/experimental-pics/lemon_slice.jpeg,Someone slices a lemon in front of you.
-1,11,tomato,modified-slice,modified,slice,tomato_slice.jpeg,PICTURES/experimental-pics/tomato_slice.jpeg,Someone slices a tomato in front of you.
-1,12,orange,modified-slice,modified,slice,orange_slice.jpeg,PICTURES/experimental-pics/orange_slice.jpeg,Someone slices an orange in front of you.
-1,13,pizza,modified-whole,modified,whole,pizza_whole.jpeg,PICTURES/experimental-pics/pizza_whole.jpeg,Someone slices a pizza in front of you.
-1,14,melon,modified-whole,modified,whole,melon_whole.jpeg,PICTURES/experimental-pics/melon_whole.jpeg,Someone slices a melon in front of you.
-1,15,cucumber,modified-whole,modified,whole,cucumber_whole.jpeg,PICTURES/experimental-pics/cucumber_whole.jpeg,Someone slices a cucumber in front of you.
-1,16,carrot,modified-whole,modified,whole,carrot_whole.jpeg,PICTURES/experimental-pics/carrot_whole.jpeg,Someone slices a carrot in front of you.
-1,17,onion,modified-whole,modified,whole,onion_whole.jpeg,PICTURES/experimental-pics/onion_whole.jpeg,Someone slices an onion in front of you.
-1,18,mushrooms,modified-whole,modified,whole,mushrooms_whole.jpeg,PICTURES/experimental-pics/mushrooms_whole.jpeg,Someone slices mushrooms in front of you.
-1,19,radish,neutral-slice,neutral,slice,radish_slice.jpeg,PICTURES/experimental-pics/radish_slice.jpeg,Someone places a radish in front of you.
-1,20,pear,neutral-slice,neutral,slice,pear_slice.jpeg,PICTURES/experimental-pics/pear_slice.jpeg,Someone places a pear in front of you.
-1,21,pepper,neutral-slice,neutral,slice,pepper_slice.jpeg,PICTURES/experimental-pics/pepper_slice.jpeg,Someone places a pepper in front of you.
-1,22,mango,neutral-slice,neutral,slice,mango_slice.jpeg,PICTURES/experimental-pics/mango_slice.jpeg,Someone places a mango in front of you.
-1,23,strawberry,neutral-slice,neutral,slice,strawberry_slice.jpeg,PICTURES/experimental-pics/strawberry_slice.jpeg,Someone places a strawberry in front of you.
-1,24,grapefruit,neutral-slice,neutral,slice,grapefruit_slice.jpeg,PICTURES/experimental-pics/grapefruit_slice.jpeg,Someone places a grapefruit in front of you.
+﻿list,object_number,object,condition,image_path,sentence,correct_response
+1,1,watermelon,neutral-whole,watermelon_whole.jpeg,Someone places a watermelon in front of you.,A
+1,2,apple,neutral-whole,apple_whole.jpeg,Someone places an apple in front of you.,A
+1,3,cake,neutral-whole,cake_whole.jpeg,Someone places a cake in front of you.,A
+1,4,pie ,neutral-whole,pie _whole.jpeg,Someone places a pie in front of you.,A
+1,5,bread,neutral-whole,bread_whole.jpeg,Someone places bread in front of you.,A
+1,6,pineapple,neutral-whole,pineapple_whole.jpeg,Someone places a pineapple in front of you.,A
+1,7,peach,modified-slice,peach_slice.jpeg,Someone slices a peach in front of you.,A
+1,8,steak,modified-slice,steak_slice.jpeg,Someone slices a steak in front of you.,A
+1,9,cheesecake,modified-slice,cheesecake_slice.jpeg,Someone slices a cheesecake in front of you.,A
+1,10,lemon,modified-slice,lemon_slice.jpeg,Someone slices a lemon in front of you.,A
+1,11,tomato,modified-slice,tomato_slice.jpeg,Someone slices a tomato in front of you.,A
+1,12,orange,modified-slice,orange_slice.jpeg,Someone slices an orange in front of you.,A
+1,13,pizza,modified-whole,pizza_whole.jpeg,Someone slices a pizza in front of you.,A
+1,14,melon,modified-whole,melon_whole.jpeg,Someone slices a melon in front of you.,A
+1,15,cucumber,modified-whole,cucumber_whole.jpeg,Someone slices a cucumber in front of you.,A
+1,16,carrot,modified-whole,carrot_whole.jpeg,Someone slices a carrot in front of you.,A
+1,17,onion,modified-whole,onion_whole.jpeg,Someone slices an onion in front of you.,A
+1,18,mushrooms,modified-whole,mushrooms_whole.jpeg,Someone slices mushrooms in front of you.,A
+1,19,radish,neutral-slice,radish_slice.jpeg,Someone places a radish in front of you.,A
+1,20,pear,neutral-slice,pear_slice.jpeg,Someone places a pear in front of you.,A
+1,21,pepper,neutral-slice,pepper_slice.jpeg,Someone places a pepper in front of you.,A
+1,22,mango,neutral-slice,mango_slice.jpeg,Someone places a mango in front of you.,A
+1,23,strawberry,neutral-slice,strawberry_slice.jpeg,Someone places a strawberry in front of you.,A
+1,24,grapefruit,neutral-slice,grapefruit_slice.jpeg,Someone places a grapefruit in front of you.,A
+1,25,sandwich,filler,sandwich.jpeg,You look at a sandwich.,A
+1,26,taco,filler,taco.jpeg,You look at a taco.,A
+1,27,potato,filler,potato.jpeg,You look at a potato.,A
+1,28,cookie,filler,cookie.jpeg,You look at a cookie.,A
+1,29,chips,filler,chips.jpeg,You look at some chips.,A
+1,30,ketchup,filler,ketchup.jpeg,You look at ketchup.,A
+1,31,corn,filler,waffle.jpeg,You look at corn.,L
+1,32,waffle,filler,rice.jpeg,You look at a waffle.,L
+1,33,rice,filler,cracker.jpeg,You look at rice.,L
+1,34,cracker,filler,pasta.jpeg,You look at a cracker.,L
+1,35,pasta,filler,granolabar.jpeg,You look at pasta.,L
+1,36,granolabar,filler,dumpling.jpeg,You look at a granola bar.,L
+1,37,dumpling,filler,lettuce.jpeg,You look at a dumpling.,L
+1,38,lettuce,filler,fries.jpeg,You look at lettuce.,L
+1,39,fries,filler,croissant.jpeg,You look at some fries.,L
+1,40,croissant,filler,burger.jpeg,You look at a croissant.,L
+1,41,burger,filler,peanut.jpeg,You look at a burger.,L
+1,42,peanut,filler,pretzel.jpeg,You look at a peanut.,L
+1,43,pretzel,filler,applesauce.jpeg,You look at a pretzel.,L
+1,44,applesauce,filler,sushi.jpeg,You look at applesauce.,L
+1,45,sushi,filler,pancake.jpeg,You look at sushi.,L
+1,46,pancake,filler,donut.jpeg,You look at a pancake.,L
+1,47,donut,filler,banana.jpeg,You look at a donut.,L
+1,48,banana,filler,corn.jpeg,You look at a banana.,L
+1,49,pillow,filler,pillow.jpeg,You look at a pillow.,A
+1,50,lamp,filler,lamp.jpeg,You look at a lamp.,A
+1,51,soap,filler,soap.jpeg,You look at soap.,A
+1,52,tablet,filler,tablet.jpeg,You look at a tablet.,A
+1,53,mug,filler,mug.jpeg,You look at a mug.,A
+1,54,couch,filler,couch.jpeg,You look at a couch.,A
+1,55,beanbag,filler,phone.jpeg,You look at a beanbag.,L
+1,56,phone,filler,plate.jpeg,You look at a phone.,L
+1,57,plate,filler,chair.jpeg,You look at a plate.,L
+1,58,chair,filler,TV.jpeg,You look at a chair.,L
+1,59,TV,filler,backpack.jpeg,You look at a TV.,L
+1,60,backpack,filler,shoe.jpeg,You look at a backpack.,L
+1,61,shoe,filler,book.jpeg,You look at a shoe.,L
+1,62,book,filler,ring.jpeg,You look at a book.,L
+1,63,ring,filler,computer.jpeg,You look at a ring.,L
+1,64,computer,filler,pencil.jpeg,You look at a computer.,L
+1,65,pencil,filler,spoon.jpeg,You look at a pencil.,L
+1,66,spoon,filler,sponge.jpeg,You look at a spoon.,L
+1,67,sponge,filler,coat.jpeg,You look at a sponge.,L
+1,68,coat,filler,bottle.jpeg,You look at a coat.,L
+1,69,bottle,filler,camera.jpeg,You look at a bottle.,L
+1,70,camera,filler,tennisball.jpeg,You look at a camera.,L
+1,71,tennisball,filler,pants.jpeg,You look at a tennisball.,L
+1,72,pants,filler,beanbag.jpeg,You look at some pants.,L
